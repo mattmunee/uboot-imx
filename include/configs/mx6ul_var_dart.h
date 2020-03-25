@@ -201,42 +201,7 @@
 				"setenv cma_size cma=64MB; " \
 			"fi; " \
 		"fi;\0" \
-	"findfdt="\
-		"if test $fdt_file = undefined; then " \
-			"if test $board_name = DART-6UL; then " \
-				"setenv som var-dart; " \
-				"setenv carrier 6ulcustomboard; " \
-			"fi; " \
-			"if test $board_name = VAR-SOM-6UL; then " \
-				"setenv som var-som; " \
-				"setenv carrier concerto-board; " \
-			"fi; " \
-			"if test $boot_dev = emmc || test $som_storage = emmc || " \
-			   "test $som_storage = none; then " \
-				"setenv storage emmc; " \
-			"fi; " \
-			"if test $boot_dev = nand || test $som_storage = nand; then " \
-				"setenv storage nand; " \
-			"fi; " \
-			"if test $boot_dev = sd; then " \
-				"setenv mmc0_dev sd-card; " \
-			"else " \
-				"if test $wifi = yes; then " \
-					"setenv mmc0_dev wifi; " \
-				"else " \
-					"setenv mmc0_dev sd-card; " \
-				"fi; " \
-			"fi; " \
-			"if test -n $soc_type && test -n $som && " \
-			   "test -n $storage && test -n $mmc0_dev && test -n $carrier; then " \
-				"setenv fdt_file ${soc_type}-${som}-${carrier}-${storage}-${mmc0_dev}.dtb; " \
-			"fi; " \
-			"setenv som; setenv carrier; setenv storage; setenv mmc0_dev; " \
-			"if test $fdt_file = undefined; then " \
-				"echo WARNING: Could not determine dtb to use; " \
-			"fi; " \
-		"fi;\0"
-
+	"findfdt= setenv fdt_file magi_mpuprotoboard.dtb;\0"\
 
 /* Miscellaneous configurable options */
 #define CONFIG_SYS_MEMTEST_START	0x80000000
