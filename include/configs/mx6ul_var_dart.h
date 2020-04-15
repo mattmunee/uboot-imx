@@ -142,9 +142,15 @@
 #define OPT_ENV_SETTINGS \
 	"optargs=setenv bootargs ${bootargs} ${kernelargs};\0"
 
+/* Make silent console for MAGI */
+#define CONFIG_SILENT_CONSOLE 
+#define CONFIG_SYS_DEVICE_NULLDEV
+#define CONFIG_SILENT_CONSOLE_UPDATE_ON_SET
+
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	BOOT_ENV_SETTINGS \
 	OPT_ENV_SETTINGS \
+    "silent=1\0" \
 	"bootenv=uEnv.txt\0" \
 	"script=boot.scr\0" \
 	"image=zImage\0" \
@@ -202,11 +208,6 @@
 			"fi; " \
 		"fi;\0" \
 	"findfdt= setenv fdt_file magi_mpuprotoboard.dtb;\0"\
-
-/* Make silent console for MAGI */
-#define CONFIG_SILENT_CONSOLE 
-#define CONFIG_SYS_DEVICE_NULLDEV
-#define CONFIG_SILENT_CONSOLE_UPDATE_ON_SET
 
 /* Miscellaneous configurable options */
 #define CONFIG_SYS_MEMTEST_START	0x80000000
