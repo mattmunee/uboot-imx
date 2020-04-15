@@ -143,9 +143,10 @@
 	"optargs=setenv bootargs ${bootargs} ${kernelargs};\0"
 
 /* Make silent console for MAGI */
-#define CONFIG_SILENT_CONSOLE 
-#define CONFIG_SYS_DEVICE_NULLDEV
-#define CONFIG_SILENT_CONSOLE_UPDATE_ON_SET
+/* Uncomment the lines below to make console silent */
+/*#define CONFIG_SILENT_CONSOLE */
+/*#define CONFIG_SYS_DEVICE_NULLDEV */
+/*#define CONFIG_SILENT_CONSOLE_UPDATE_ON_SET */
 
 #define CONFIG_EXTRA_ENV_SETTINGS \
 	BOOT_ENV_SETTINGS \
