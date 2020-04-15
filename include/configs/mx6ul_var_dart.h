@@ -203,6 +203,11 @@
 		"fi;\0" \
 	"findfdt= setenv fdt_file magi_mpuprotoboard.dtb;\0"\
 
+/* Make silent console for MAGI */
+#define CONFIG_SILENT_CONSOLE 
+#define CONFIG_SYS_DEVICE_NULLDEV
+#define CONFIG_SILENT_CONSOLE_UPDATE_ON_SET
+
 /* Miscellaneous configurable options */
 #define CONFIG_SYS_MEMTEST_START	0x80000000
 #define CONFIG_SYS_MEMTEST_END		(CONFIG_SYS_MEMTEST_START + 0x8000000)
